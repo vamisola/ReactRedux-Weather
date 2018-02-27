@@ -8,6 +8,7 @@ class WeatherList extends Component {
     const temps = cityData.list.map(weather => weather.main.temp - 273.15);
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
+    const description = cityData.list.map(weather => weather.weather[0].description);
     const { lon, lat } = cityData.city.coord;
 
     return(
@@ -18,7 +19,6 @@ class WeatherList extends Component {
         <td><Chart data={humidities} color="blue" units="%"/></td>
       </tr>
     )
-
   }
   render() {
     return (
